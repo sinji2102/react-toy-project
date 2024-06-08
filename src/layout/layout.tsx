@@ -5,6 +5,10 @@ function Layout() {
   return (
     <LayoutWrapper>
       <NoteLayout>
+        <TitleWrapper>
+          <LayoutTitle>Notes App</LayoutTitle>
+          <Description>Take notes and never forget.</Description>
+        </TitleWrapper>
         <Outlet />
       </NoteLayout>
     </LayoutWrapper>
@@ -31,5 +35,23 @@ const NoteLayout = styled.section`
 
   background-color: ${({ theme }) => theme.colors.white};
 
-  border-radius: 7rem;
+  border-radius: 5rem;
+`;
+
+const TitleWrapper = styled.section`
+  display: flex;
+  flex-direction: column;
+
+  margin: 7rem 0 0 3rem;
+`;
+
+const LayoutTitle = styled.section`
+  ${({ theme }) => theme.fonts.Bold};
+  font-size: 4rem;
+`;
+
+const Description = styled.section`
+  margin-top: 0.5rem;
+  ${({ theme }) => theme.fonts.Regular};
+  font-size: 2rem;
 `;
