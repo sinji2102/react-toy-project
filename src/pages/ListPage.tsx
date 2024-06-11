@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 import ListItem from "../components/ListItem";
+import Button from "../components/common/button";
 
 const dummyList = [
   {
@@ -41,6 +42,14 @@ function ListPage() {
           <ListItem key={item.id} {...item} />
         ))}
       </ListContainer>
+      <Button
+        width="15rem"
+        height="5rem"
+        margin="2rem 0 0 55rem"
+        buttonColor="#226597"
+      >
+        Create Note
+      </Button>
     </ListPageWrapper>
   );
 }
@@ -49,6 +58,7 @@ export default ListPage;
 
 const ListPageWrapper = styled.section`
   display: flex;
+  flex-direction: column;
 
   margin: 3rem;
 `;
@@ -57,7 +67,7 @@ const ListContainer = styled.section`
   display: flex;
   flex-direction: column;
 
-  height: 33rem;
+  height: 32rem;
 
   overflow-y: scroll;
 
