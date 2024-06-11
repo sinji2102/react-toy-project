@@ -15,8 +15,10 @@ function ListPage() {
 
   return (
     <ListPageWrapper>
-      <BtnContainer>
-        <Dropdown
+      <Dropdown>
+        정렬
+        <DropdownBox
+          className="DropdownBox"
           type="button"
           onClick={() => {
             handleCreate();
@@ -24,8 +26,9 @@ function ListPage() {
           }}
         >
           생성순
-        </Dropdown>
-        <Dropdown
+        </DropdownBox>
+        <DropdownBox
+          className="DropdownBox"
           type="button"
           onClick={() => {
             handleUpdate();
@@ -33,8 +36,8 @@ function ListPage() {
           }}
         >
           수정순
-        </Dropdown>
-      </BtnContainer>
+        </DropdownBox>
+      </Dropdown>
 
       <ListContainer>
         {noteInfo.map((item: ListItemProps) => (
@@ -76,22 +79,39 @@ const ListContainer = styled.section`
   }
 `;
 
-const BtnContainer = styled.section`
-  display: flex;
-
-  margin-bottom: 1rem;
-`;
-
-const Dropdown = styled.button`
-  display: flex;
+const Dropdown = styled.section`
+  position: relative;
+  display: inline-block;
   text-align: center;
   justify-content: center;
 
   width: 7rem;
-  height: 2rem;
-  margin-left: 1rem;
+  height: 3rem;
+  margin: 0 0 1rem 1rem;
+
+  background-color: ${({ theme }) => theme.colors.white};
+
+  font-size: 1.5rem;
+
+  &:hover {
+    cursor: pointer;
+    .DropdownBox {
+      display: flex;
+    }
+  }
+`;
+
+const DropdownBox = styled.button`
+  display: none;
+  text-align: center;
+  justify-content: center;
+
+  width: 7rem;
+  height: 3rem;
 
   background-color: ${({ theme }) => theme.colors.white};
 
   border-radius: 0.3rem;
+
+  z-index: 1;
 `;
