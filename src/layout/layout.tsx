@@ -33,7 +33,7 @@ const NoteLayout = styled.section`
   width: 80rem;
   height: 60rem;
 
-  background-color: ${({ theme }) => theme.colors.white};
+  background-color: ${({ theme }) => theme.colors.beige};
 
   border-radius: 5rem;
 `;
@@ -42,7 +42,7 @@ const TitleWrapper = styled.section`
   display: flex;
   flex-direction: column;
 
-  margin: 7rem 0 0 3rem;
+  margin: 7rem 0 0 4rem;
 `;
 
 const LayoutTitle = styled.section`
