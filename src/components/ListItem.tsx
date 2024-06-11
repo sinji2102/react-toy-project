@@ -1,11 +1,14 @@
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 import { ListItemProps } from "../types/listProps";
 
-function ListItem({ title, body }: ListItemProps) {
+function ListItem({ id, title, body }: ListItemProps) {
+  const navigate = useNavigate();
+
   return (
     <ListItemWrapper>
-      <ListItemContainer>
+      <ListItemContainer type="button" onClick={() => navigate(`/edit/${id}`)}>
         <Title>{title}</Title>
         <Body>{body}</Body>
       </ListItemContainer>

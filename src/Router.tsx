@@ -19,7 +19,7 @@ export const router = createBrowserRouter([
         element: <CreatePage />,
       },
       {
-        path: "/edit",
+        path: "/edit/:noteId",
         element: <EditPage />,
       },
     ],
