@@ -1,22 +1,34 @@
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
-import Input from "../components/common/Input";
+import Button from "../components/common/Button";
+import CreateInput from "../components/CreateInput";
 
 function CreatePage() {
+  const navigate = useNavigate();
+
   return (
     <CreatePageWrapper>
-      <Input
-        placeholder="Enter Title"
-        customHeight="5rem"
-        customMargin="1rem 0 1rem 3rem"
-        customPadding="1.3rem"
-      />
-      <Input
-        placeholder="Contents"
-        customHeight="25rem"
-        customMargin="0 3rem"
-        customPadding="1.3rem"
-      />
+      <Button
+        width="10rem"
+        height="4rem"
+        margin="2rem 0 0 3rem"
+        buttonColor="#EEEEEE"
+        fontColor="black"
+        onClick={() => navigate("/")}
+      >
+        ⬅️ Back
+      </Button>
+      <CreateInput />
+      <Button
+        id="create-btn"
+        width="10rem"
+        height="5rem"
+        margin="2rem 0 0 63rem"
+        buttonColor="#226597"
+      >
+        Done
+      </Button>
     </CreatePageWrapper>
   );
 }
