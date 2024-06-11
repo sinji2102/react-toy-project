@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 import ListItem from "../components/ListItem";
@@ -35,6 +36,8 @@ const dummyList = [
 ];
 
 function ListPage() {
+  const navigate = useNavigate();
+
   return (
     <ListPageWrapper>
       <ListContainer>
@@ -47,6 +50,7 @@ function ListPage() {
         height="5rem"
         margin="2rem 0 0 55rem"
         buttonColor="#226597"
+        onClick={() => navigate("/create")}
       >
         Create Note
       </Button>

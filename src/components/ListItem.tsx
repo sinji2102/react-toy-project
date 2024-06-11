@@ -36,9 +36,11 @@ const ListItemContainer = styled.button`
 const Title = styled.h2`
   display: flex;
 
+  margin-top: 1rem;
+
   ${({ theme }) => theme.fonts.SemiBold};
   color: ${({ theme }) => theme.colors.black};
-  font-size: 3rem;
+  font-size: 2rem;
 `;
 
 const Body = styled.article`
@@ -46,11 +48,11 @@ const Body = styled.article`
   text-align: left;
 
   width: 65rem;
-  margin-top: 1rem;
+  margin-top: 0.5rem;
 
   ${({ theme }) => theme.fonts.Light};
   color: ${({ theme }) => theme.colors.bodyBlack};
-  font-size: 2rem;
+  font-size: 1.5rem;
 
   white-space: nowrap;
   overflow: hidden;
