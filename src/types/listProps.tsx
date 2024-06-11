@@ -8,3 +8,8 @@ export interface ListItemProps {
   onEdit?: void;
   onDelete?: void;
 }
+
+export interface EditInputProps extends ListItemProps {
+  onEdit: (idx: number, title: string, body: string) => void;
+  onDelete: (idx: number) => void;
+}

@@ -6,12 +6,7 @@ import "moment/locale/ko";
 import Input from "../components/common/Input";
 import Button from "./common/Button";
 
-import { ListItemProps } from "../types/listProps";
-
-interface EditInputProps extends ListItemProps {
-  onEdit: (idx: number, title: string, body: string) => void;
-  onDelete: (idx: number) => void;
-}
+import { EditInputProps } from "../types/listProps";
 
 function EditInput({ idx, title, body, onEdit, onDelete }: EditInputProps) {
   const titleRef = useRef<HTMLTextAreaElement>(null);
