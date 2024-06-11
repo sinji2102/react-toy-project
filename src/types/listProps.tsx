@@ -5,4 +5,6 @@ export interface ListItemProps {
   createdAt: string;
   updatedAt: string;
   idx?: number;
+  onEdit?: void;
+  onDelete?: void;
 }

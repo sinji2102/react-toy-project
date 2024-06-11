@@ -26,6 +26,7 @@ function CreatePage() {
         height="5rem"
         margin="2rem 0 0 63rem"
         buttonColor="#226597"
+        onClick={() => document.getElementById("create-btn")?.click()}
       >
         Done
       </Button>
@@ -38,6 +39,5 @@ export default CreatePage;
 const CreatePageWrapper = styled.section`
   display: flex;
   flex-direction: column;
-
   margin: 1rem;
 `;

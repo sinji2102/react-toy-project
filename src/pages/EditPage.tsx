@@ -5,6 +5,7 @@ import EditInput from "../components/EditInput";
 import Button from "../components/common/Button";
 
 import { getSavedNoteInfo } from "../utils/getNoteInfo";
+import { handleEdit, handleDelete } from "../utils/handle";
 
 import { ListItemProps } from "../types/listProps";
 
@@ -28,18 +29,18 @@ function EditPage() {
       </Button>
       {noteInfo.map((item: ListItemProps, idx: number) => {
         if (item.id === noteId) {
-          return <EditInput key={item.id} idx={idx} {...item} />;
+          return (
+            <EditInput
+              key={item.id}
+              idx={idx}
+              onEdit={handleEdit}
+              onDelete={handleDelete}
+              {...item}
+            />
+          );
         }
+        return null;
       })}
-      <Button
-        id="edit-btn"
-        width="10rem"
-        height="5rem"
-        margin="2rem 0 0 63rem"
-        buttonColor="#226597"
-      >
-        Done
-      </Button>
     </EditPageWrapper>
   );
 }
@@ -49,6 +50,5 @@ export default EditPage;
 const EditPageWrapper = styled.section`
   display: flex;
   flex-direction: column;
-
   margin: 1rem;
 `;

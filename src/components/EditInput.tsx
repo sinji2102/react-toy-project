@@ -1,57 +1,72 @@
+import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import moment from "moment";
 import "moment/locale/ko";
 
 import Input from "../components/common/Input";
-
-import { getSavedNoteInfo } from "../utils/getNoteInfo";
+import Button from "./common/Button";
 
 import { ListItemProps } from "../types/listProps";
 
-function EditInput({ idx, title, body }: ListItemProps) {
+interface EditInputProps extends ListItemProps {
+  onEdit: (idx: number, title: string, body: string) => void;
+  onDelete: (idx: number) => void;
+}
+
+function EditInput({ idx, title, body, onEdit, onDelete }: EditInputProps) {
+  const titleRef = useRef<HTMLTextAreaElement>(null);
+  const bodyRef = useRef<HTMLTextAreaElement>(null);
+
   const navigate = useNavigate();
-
-  const titleElement = document.getElementById("title") as HTMLInputElement;
-  const bodyElement = document.getElementById("body") as HTMLTextAreaElement;
-  const editBtn = document.getElementById("edit-btn") as HTMLButtonElement;
-
-  const noteInfo = getSavedNoteInfo();
-
-  const index = typeof idx != "undefined" ? idx : 0;
-
-  if (titleElement && bodyElement && editBtn) {
-    editBtn.addEventListener("click", () => {
-      noteInfo[index].title = (titleElement as HTMLInputElement).value;
-      noteInfo[index].body = (bodyElement as HTMLTextAreaElement).value;
-      noteInfo[index].updatedAt = moment().format("YYYY-MM-DD HH:mm:ss");
-
-      localStorage.setItem("noteInfo", JSON.stringify(noteInfo));
-
-      navigate("/");
-    });
-  } else {
-    console.error("One or more elements not found");
-  }
 
   return (
     <EditInputWrapper>
       <Input
         id="title"
+        ref={titleRef}
+        defaultValue={title}
         customHeight="5rem"
         customMargin="1rem 0 1rem 3rem"
         customPadding="1.3rem"
-      >
-        {title}
-      </Input>
+      />
       <Input
         id="body"
+        ref={bodyRef}
+        defaultValue={body}
         customHeight="20rem"
         customMargin="0 3rem"
         customPadding="1.3rem"
-      >
-        {body}
-      </Input>
+      />
+      <ButtonContainer>
+        <Button
+          id="delete-btn"
+          onClick={() => {
+            onDelete(idx);
+            navigate("/");
+          }}
+          width="10rem"
+          height="5rem"
+          margin="2rem 0 0 3rem"
+          buttonColor="#EE4E4E"
+        >
+          Delete
+        </Button>
+        <Button
+          id="edit-btn"
+          onClick={() => {
+            if (titleRef.current && bodyRef.current) {
+              onEdit(idx, titleRef.current.value, bodyRef.current.value);
+            }
+            navigate("/");
+          }}
+          width="10rem"
+          height="5rem"
+          margin="2rem 0 0 50rem"
+          buttonColor="#226597"
+        >
+          Done
+        </Button>
+      </ButtonContainer>
     </EditInputWrapper>
   );
 }
@@ -60,6 +75,9 @@ export default EditInput;
 
 const EditInputWrapper = styled.section`
   display: flex;
-
   flex-direction: column;
+`;
+
+const ButtonContainer = styled.section`
+  display: flex;
 `;

@@ -1,10 +1,10 @@
-import { ReactElement } from "react";
+import React, { forwardRef, ReactElement } from "react";
 import styled, { css } from "styled-components";
 import { InputStyle, InputProps } from "../../types/inputStyleProps";
 
-function Input({ className, ...rest }: InputProps): ReactElement {
-  return <InputStyled className={className} {...rest} />;
-}
+const Input = forwardRef<HTMLTextAreaElement, InputProps>(({ className, ...rest }, ref): ReactElement => {
+  return <InputStyled className={className} ref={ref} {...rest} />;
+});
 
 const InputStyled = styled.textarea<InputStyle>`
   cursor: pointer;
