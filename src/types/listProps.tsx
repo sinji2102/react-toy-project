@@ -4,4 +4,5 @@ export interface ListItemProps {
   body: string;
   createdAt: string;
   updatedAt: string;
+  idx?: number;
 }

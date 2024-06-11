@@ -26,11 +26,20 @@ function EditPage() {
       >
         ⬅️ Back
       </Button>
-      {noteInfo.map((item: ListItemProps) => {
+      {noteInfo.map((item: ListItemProps, idx: number) => {
         if (item.id === noteId) {
-          return <EditInput key={item.id} {...item} />;
+          return <EditInput key={item.id} idx={idx} {...item} />;
         }
       })}
+      <Button
+        id="edit-btn"
+        width="10rem"
+        height="5rem"
+        margin="2rem 0 0 63rem"
+        buttonColor="#226597"
+      >
+        Done
+      </Button>
     </EditPageWrapper>
   );
 }
