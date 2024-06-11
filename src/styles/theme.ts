@@ -1,7 +1,11 @@
 import { css } from "styled-components";
 
 const colors = {
-  white: "#F3F9FB",
+  white: "#FFFFFF",
+  beige: "#F8F6E3",
+  black: "#000000",
+  bodyBlack: "#373A40",
+  grey: "#EEEEEE",
   lightBlue: "#87C0CD",
   blue: "#226597",
   darkBlue: "113F67",
