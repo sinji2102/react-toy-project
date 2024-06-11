@@ -1,8 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
+import Button from "../components/common/Button";
 import ListItem from "../components/ListItem";
-import Button from "../components/common/button";
 
 const dummyList = [
   {
